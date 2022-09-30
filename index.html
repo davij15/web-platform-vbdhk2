@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que dia é hoje?</title>
+    <style>
+        body {
+            background-color: lavender;
+        }
+        header {
+            text-align: center;
+            font-family: monospace;
+            font-size: 20pt;
+        }
+        div {
+            text-align: center;
+            font-family: monospace;
+            font-size: 20pt;
+        }
+        img {
+            width: 250px;
+            padding: 30px;
+            border-radius: 40pt;
+        }
+        div#info {
+            line-height: 50px;
+            font-size: 18pt;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Que dia é hoje?</h1>
+    </header>
+    <div id="resultado">
+        
+    </div>
+    <div id="imagem">
+        <img src="ilustracao-de-relogio_53876-5579.webp" alt="Imagem de um relógio">
+    </div>
+    <div id="info">
+
+    </div>
+    <script>
+        var resultado = document.getElementById('resultado')
+        var info = document.querySelector('div#info')
+
+        var agora = new Date()
+        var horas = agora.getHours()
+        var minutos = agora.getMinutes()
+
+        // este bloco coloca um 0 antes de minutos de um dígito só
+        if (minutos >= 0 && minutos <= 9) {
+            minutos = `0${minutos}`
+        }
+
+        var horaCompleta = `${horas}:${minutos}`
+        var data = agora.getDate()
+        var numDiaDaSemana = agora.getDay()
+        var diaDaSemana = agora.getDay()
+
+        switch (diaDaSemana) {
+            case 0:
+                diaDaSemana = 'domingo'
+                break
+            case 1:
+                diaDaSemana = 'segunda-feira'
+                break
+            case 2:
+                diaDaSemana = 'terça-feira'
+                break
+            case 3:
+                diaDaSemana = 'quarta-feira'
+                break
+            case 4:
+                diaDaSemana = 'quinta-feira'
+                break
+            case 5:
+                diaDaSemana = 'sexta-feira'
+                break
+            case 6:
+                diaDaSemana = 'sábado'
+        }
+
+        var ano = agora.getFullYear()
+        var segundos = agora.getSeconds()
+        var mês = agora.getMonth()
+        var nummes = agora.getMonth()
+
+        switch (mês) {
+            case 0:
+                mês = 'janeiro'
+                break
+            case 1:
+                mês = 'fevereiro'
+                break
+            case 2:
+                mês = 'março'
+                break
+            case 3:
+                mês = 'abril'
+                break
+            case 4:
+                mês = 'maio'
+                break
+            case 5:
+                mês = 'junho'
+                break
+            case 6:
+                mês = 'julho'
+                break
+            case 7:
+                mês = 'agosto'
+                break
+            case 8:
+                mês = 'setembro'
+                break
+            case 9:
+                mês = 'outubro'
+                break
+            case 10:
+                mês = 'novembro'
+                break
+            case 11:
+                mês = 'dezembro'
+                break
+        }
+
+        resultado.innerHTML = `Hoje é ${diaDaSemana}, ${data} de ${mês} de ${ano}.<br>`
+        resultado.innerHTML += `Agora são exatamente ${horaCompleta}.`
+
+
+        info.innerHTML = `A função <mark>getHours()</mark> mostra apenas a <mark style="background-color:  lawngreen;">hora</mark> atual: <mark style="background-color: aqua;">${horas}</mark><br>`
+        info.innerHTML += `A função <mark>getMinutes()</mark> mostra apenas os <mark style="background-color:  lawngreen;">minutos</mark> atuais: <mark style="background-color: aqua;">${minutos}</mark><br>`
+        info.innerHTML += `A função <mark>getDate()</mark> mostra o dia do mês: <mark style="background-color: aqua;">${data}</mark><br>`
+        info.innerHTML += `A função <mark>getDay()</mark> mostra o número do dia da semana (domingo é 0, segunda é 1): <mark style="background-color: aqua">${numDiaDaSemana}</mark><br>`
+        info.innerHTML += `A função <mark>getFullYear()</mark> mostra: <mark style="background-color: aqua;">${ano}</mark><br>`
+        info.innerHTML += `A função <mark>getSeconds()</mark> mostra: <mark style="background-color: aqua;">${segundos}</mark><br>`
+        info.innerHTML += `A função <mark>getMonth()</mark> mostra: <mark style="background-color: aqua;">${nummes}</mark>`
+    </script>
+</body>
+</html>
